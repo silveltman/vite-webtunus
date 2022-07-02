@@ -1,0 +1,17 @@
+{% if big %}
+    {% assign text_size = 'text-xl' %}
+    {% assign w = 'w-[100px]' %}
+{% else %}
+    {% assign text_size = 'text-base' %}
+    {% assign w = 'w-[80px]' %}
+{% endif %}
+
+<a class="relative inline-flex items-center group" href="{{ url }}">
+    <span class="mr-3 font-medium text-yellow {{ text_size }}">{{ text }}</span>
+    <div class="flex items-center {{ w }}">
+        <div class="w-[60%] group-hover:translate-x-[66%] transition-transform">
+            <img alt="arrow" class="w-full {% if animate %}animate-arrow group-hover:animate-none{% endif %}" src="/assets/img/icons/arrow.svg">
+        </div>
+        <div class="w-[40%] aspect-1 border-2 rounded-full border-yellow translate-x-[-62%] group-hover:translate-x-[-150%] transition-transform group-active:bg-yellow"></div>
+    </div>
+</a> 

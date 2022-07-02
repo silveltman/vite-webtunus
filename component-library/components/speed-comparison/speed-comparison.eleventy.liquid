@@ -1,0 +1,24 @@
+<section class="grid grid-cols-2 gap-12">
+    <div class="flex flex-col items-end col-span-full">
+        <span class="mb-2 text-lg text-right text-white">
+            <b>2,92</b><br>
+            seconden
+        </span>
+        <div class="relative w-full h-6 border border-white">
+            <div class="absolute top-0 left-0 w-1/3 h-full bg-white-50"></div>
+        </div>
+    </div>
+    {% for index in (1..2) %}
+        <div class="flex flex-col p-10 bg-blue-400">
+            <div class="flex items-center justify-center bg-blue-200 aspect-[16/9]">
+                <i class="text-blue-400 !text-8xl material-icons">image</i>
+            </div>
+            <div class="flex flex-col mt-8 gap-y-4">
+                {% for index in (1..5) %}
+                    <div class="w-full h-3 bg-blue-200"></div>
+                {% endfor %}
+                <div class="w-1/2 h-3 bg-blue-200"></div>
+            </div>
+        </div>
+    {% endfor %}
+</section>

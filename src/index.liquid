@@ -2,9 +2,34 @@
 layout: default.liquid
 ---
 
-{% bookshop 'nav' %}
+<section class="h-[115vh] flex flex-col bg-black/60 overflow-hidden">
+    <div class="gap-y-16 container relative flex flex-col items-end my-auto">
+        <h1 class="leading-[.85] text-right text-display font-secondary">
+            <span class="text-white">ONLINE RESULTAAT</span><br/>
+            <span class="text-border text-border-white text-black">RESULTAAT</span>
+        </h1>
+        <div class="origin-bottom-right-left text-white-700 left-4 sm:text-xl md:text-2xl bottom-8 absolute flex items-center origin-top-left -rotate-90">
+            <span>web</span>
+            <div class="bg-yellow w-1 h-1 mx-4 rounded-full"></div>
+            <span>app</span>
+            <div class="bg-yellow w-1 h-1 mx-4 rounded-full"></div>
+            <span>shop My name iss sil</span>
+        </div>
+        <div class="sm:flex-row sm:items-center gap-y-5 gap-x-9 relative flex flex-col items-end justify-center md:mr-[18%]">
+            <div class="bg-gradient-radial from-blue/10 via-blue/0 to-blue/0 absolute w-[250%] h-[400%] right-[-60%] md:h-[800%]"></div>
+            {% bookshop 'btn/primary' text: 'Lanceren' url: '#' big animate %}
+            {% bookshop 'btn/secondary' text: 'Recente projecten' url: '#' big animate %}
+        </div>
+    </div>
+    <div class="bg-yellow h-[30vh]"></div>
+</section>
+<section class="relative">
 
-<h1 class="bg-yellow text-blue-500">INDEX 2</h1>
-<span class="text-yellow">lang:
-    {{ general_settings.seo.title }}
-</span>
+    <div class=" absolute z-auto inline-flex items-center -left-[40vw] sm:-left-[30vw] md:-left-[15vw] -top-[45vh] lg:-top-[60vh] justify-center w-[110vw] h-[110vw] sm:w-[85vw] sm:h-[85vw] md:w-[60vw] md:h-[60vw]" id="canvas-container">
+        <canvas id="canvas"></canvas>
+        <div class="absolute h-[122%] w-[122%] border border-white-900 rounded-full -z-50"></div>
+        <div class="absolute h-[152%] w-[152%] border border-white-900 rounded-full -z-50"></div>
+    </div>
+</section>
+
+div

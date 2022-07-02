@@ -1,0 +1,13 @@
+<div class="flex flex-col max-w-lg">
+    <img src="{{ image.image }}" alt="{{ image.alt }}"/>
+    <div class="relative flex items-end justify-between pt-2">
+        <span class="tracking-widest font-extralight text-yellow">{{ website_url }}</span>
+        <div class="absolute bottom-0 -right-3">
+            {% bookshop 'btn/icon' icon: 'open_in_new' url: website_url target: '_blank' %}
+        </div>
+    </div>
+    <div class="mt-5">
+        <h3 class="mb-2 text-2xl text-white font-secondary">{{ title }}</h3>
+        <p class="text-white">{{ description }}</p>
+    </div>
+</div>

@@ -1,11 +1,21 @@
 <header class="container flex items-center justify-between pt-5">
-    <ul>
-      <li>Link A</li>
-      <li>Link A</li>
-      <li>Link A</li>
-      <li>Link A</li>
-
-    </ul>
+    <a href="/">
+        <img alt="" class="h-[26px]" src="/assets/img/logo.svg"/>
+    </a>
+    <nav class="gap-x-5 md:flex items-center hidden">
+        {% for item in navigation.links %}
+            {% if forloop.last == false %}
+                <a class="px-3 py-2 text-white" href="{{ item.url }}">{{ item.title }}</a>
+            {% else %}
+                {% bookshop 'btn/secondary' text: item.title url: item.url %}
+            {% endif %}
+        {% endfor %}
+    </nav>
+    <button class="justify-evenly group md:hidden flex flex-col items-end w-8 h-8">
+        <span class="h-[3px] w-full bg-white"></span>
+        <span class="h-[3px] w-full bg-white "></span>
+        <span class="h-[3px] w-1/2 bg-white group-hover:w-full transition-all"></span>
+    </button>
 </header>
 
 {%- comment -%}

@@ -1,0 +1,9 @@
+<section class="flex py-8 border-white gap-x-24 border-y bg-blue">
+    {% for item in items %}
+        <div class="flex font-secondary">
+            <span class="text-white text-8xl">{{ item.value }}
+            </span>
+            <span class="text-5xl leading-[.85] text-blue text-border text-border-white">{{ item.key }}</span>
+        </div>
+    {% endfor %}
+</section>

@@ -1,0 +1,16 @@
+{% if blue %}
+    {% assign bg = 'bg-blue' %}
+    {% assign border = 'border-blue' %}
+    {% assign text = 'text-white' %}
+{% else %}
+    {% assign bg = 'bg-yellow' %}
+    {% assign border = 'border-yellow' %}
+    {% assign text = 'text-black' %}
+{% endif %}
+
+<a href="{{ url }}" target="{{ target }}" class="relative inline-flex items-center justify-center transition-all border-2 rounded-full {{ border }} group">
+    <div class="absolute transition-all rounded-full inset-2 group-hover:inset-1 group-focus:inset-[-1px] {{ bg }}"></div>
+    <span class="relative p-6 text-center material-icons aspect-1 {{ text }}">
+        {{ icon }}
+    </span>
+</a>

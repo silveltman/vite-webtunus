@@ -1,0 +1,24 @@
+{% if big %}
+    {% assign text_size = 'text-xl' %}
+    {% assign p = 'p-1' %}
+{% else %}
+    {% assign text_size = 'text-base' %}
+    {% assign p = 'p-0' %}
+{% endif %}
+
+{% if blue %}
+    {% assign bg = 'bg-blue' %}
+    {% assign border = 'border-blue' %}
+    {% assign text_color = 'text-white' %}
+{% else %}
+    {% assign bg = 'bg-yellow' %}
+    {% assign border = 'border-yellow' %}
+    {% assign text_color = 'text-black' %}
+{% endif %}
+
+<a href="{{ url }}" class="{{ p }} relative inline-flex items-center justify-center transition-all border-2 rounded-full group {{ border }}">
+    <div class="absolute transition-all rounded-full inset-2 group-hover:inset-1 group-focus:inset-[-1px] {{ bg }}"></div>
+    <span class="relative py-4 font-medium text-center px-7 {{ text_color }} {{ text_size }}">
+        {{ text }}
+    </span>
+</a>

@@ -6,6 +6,7 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
+    require('tailwindcss-text-border'),
   ],
   theme: {
     fontFamily: {
@@ -14,22 +15,10 @@ module.exports = {
     },
     extend: {
       fontSize: {
-        display: 'clamp(42px, 12vw, 140px)',
+        display: 'clamp(70px, 12vw, 140px)',
       },
       container: {
         center: true,
-        screens: {
-          // sm: '640px',
-          // md: '768px',
-          // lg: '1024px',
-          // xl: '1280px',
-          // '2xl': '1280px',
-          sm: '95vw',
-          // md: '95vw',
-          // lg: '95vw',
-          // xl: '95vw',
-          '2xl': '1280px',
-        },
         padding: {
           DEFAULT: '20px', // equal to px-5 by default
           sm: '28px', // equal to px-7 by default
