@@ -5,4 +5,4 @@ source: src
 collections_config:
   pages:
     path: ''
-    glob: ['*.{md, html, liquid}'],
+    glob: '*.{md, html, liquid}'
