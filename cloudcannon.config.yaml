@@ -1,2 +1,7 @@
 # Read from ./src instead of
 source: src
+
+# Populates the sidebar navigation and provides metadata for the editor
+collections_config:
+  pages:
+    path: ''
