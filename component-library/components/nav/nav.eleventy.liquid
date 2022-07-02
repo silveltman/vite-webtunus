@@ -1,0 +1,97 @@
+<header class="container flex items-center justify-between pt-5">
+    <ul>
+      <li>Link A</li>
+      <li>Link A</li>
+      <li>Link A</li>
+      <li>Link A</li>
+
+    </ul>
+</header>
+
+{%- comment -%}
+<header
+  class="nav"
+  x-data="{ open: false }"
+  :class="open && 'open'"
+  @click.outside="open = false"
+>
+  <div class="nav__wrapper bg-red-50 text-red-100">
+    <div class="nav__head">
+      <a class="nav__logo" href="/">
+        <img src="{{ info.logo.image }}" alt="{{ info.logo.alt }}" />
+      </a>
+
+      <button @click="open = !open" href="/" class="nav__menu btn">
+        <i class="material-icons icon" x-show="!open">menu</i>
+        <i class="material-icons icon" x-show="open" x-cloak>close</i>
+      </button>
+    </div>
+
+    <div class="nav__content" :class="open && 'open'">
+      <ul class="nav-list">
+        {% for item in items %}
+
+        <!-- Links with dropdown -->
+        {% if item.dropdown %}
+        <li
+          class="nav-list__item"
+          x-data="{ expanded: false }"
+          @click="expanded = !expanded"
+          @click.outside=" expanded = false"
+        >
+          <a class="btn nav-list__link">
+            <span>{{ item.title }}</span>
+            <i class="material-icons icon" :class="expanded && 'rotate'"
+              >expand_more</i
+            >
+          </a>
+
+          <ul
+            class="nav-dropdown-list"
+            x-show="expanded"
+            x-cloak
+            x-collapse.duration.100
+          >
+            <!-- Loop over given collection -->
+            {% for dropdown_item in collections[item.dropdown.collection] %}
+            <li class="nav-dropdown-list__item">
+              <a
+                href="{{ dropdown_item.url }}"
+                class="btn nav-dropdown-list__link"
+                >{{ dropdown_item.data.title }}</a
+              >
+            </li>
+            {% endfor %}
+
+            <!-- Loop over custom links -->
+            {% for dropdown_item in item.dropdown.custom %}
+            <li class="nav-dropdown-list__item">
+              <a
+                href="{{ dropdown_item.url }}"
+                class="btn nav-dropdown-list__link"
+                >{{ dropdown_item.title }}</a
+              >
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+
+        <!-- Single link, without dropdown -->
+        {% else %}
+        <li class="nav-list__item">
+          <a href="{{ item.url }}" class="btn nav-list__link">{{
+            item.title
+          }}</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+
+      <!-- Buttons -->
+      <div class="nav-buttons">
+        <a href="/contact" class="btn btn--secondary">Contact</a>
+        <a href="/" class="btn btn--primary">Huren</a>
+      </div>
+    </div>
+  </div>
+</header>
+{%- endcomment -%}

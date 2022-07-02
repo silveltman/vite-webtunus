@@ -1,0 +1,62 @@
+seo:
+  title: Cool title
+  description: Cool description
+  url: https://mywebsite.com
+  img:
+  img_alt:
+  name:
+  locale:
+  generator: eleventy
+lang: en
+logo:
+  image:
+  description:
+favicon:
+  image: /assets/img/uploads/favicon-32x32.png
+  background_color:
+company_info:
+  company_name: My business
+  email:
+  tel:
+  adress:
+contact:
+social:
+  facebook:
+  twitter:
+  instagram:
+  pinterest:
+  Github:
+google-analytics:
+_inputs:
+  title:
+    comment: >-
+      Default title used in Google when no title is set on the page itself. Aim
+      at 60-65 characters.
+  description:
+    comment: >-
+      Default title used in Google when no title is set on the page itself. Aim
+      at 155-160 characters.
+  url:
+    comment: The URL under which you website will be online.
+  img:
+    type: image
+    label: Image
+    comment: >-
+      Shown when your website is shared on platforms like on Whatsapp, Twitter
+      and Facebook.
+    options:
+      width: 1200
+      height: 630
+      resize_style: cover
+  img_alt:
+    label: Image description
+    comment: A short description of the image above.
+  name:
+    comment: The name of the owner/editor of the website.
+  locale:
+    type: select
+    label: Language
+    options:
+      values: locales
+  generator:
+    hidden: true
