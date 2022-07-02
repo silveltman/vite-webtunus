@@ -4,8 +4,5 @@ source: src
 # Populates the sidebar navigation and provides metadata for the editor
 collections_config:
   pages:
-    # path: ''
-    glob:
-      - '*.md'
-      - '*.liquid'
-      - '*.html'
+    path: ''
+    glob: ['*.{md,html,liquid}']
