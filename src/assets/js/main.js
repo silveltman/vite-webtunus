@@ -8,10 +8,10 @@ import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls
 // Size and DOM
 
 const canvas = document.querySelector('#canvas')
-const canvasContainer = document.querySelector('#canvas-container')
+const canvasContainer = document.querySelector('.canvas-container')
 const size = {
   width: canvasContainer.offsetWidth,
-  height: canvasContainer.offsetHeight,
+  height: canvasContainer.offsetWidth, // also width, square!
 }
 
 //======================
@@ -93,7 +93,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 window.addEventListener('resize', () => {
   //Update Sizes:
   size.width = canvasContainer.offsetWidth
-  size.height = canvasContainer.offsetHeight
+  size.height = canvasContainer.offsetWidth // also width, square!
 
   //Camera
   camera.aspect = size.width / size.height

@@ -19,11 +19,15 @@ module.exports = {
       },
       container: {
         center: true,
-        padding: {
-          DEFAULT: '20px', // equal to px-5 by default
-          sm: '28px', // equal to px-7 by default
-          lg: '32px', // equal to px-8 by default
-          xl: '40px', // equal to px-10
+        // padding: {
+        //   DEFAULT: '20px',
+        //   sm: '5vw',
+        //   lg: '5vw',
+        //   xl: '5vw',
+        // },
+        screens: {
+          DEFAULT: '90vw',
+          '2xl': '1280px',
         },
       },
       colors: {

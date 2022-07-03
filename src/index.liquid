@@ -2,7 +2,7 @@
 layout: default.liquid
 ---
 
-<section class="h-[115vh] flex flex-col bg-black/60 overflow-hidden">
+<section class="h-[82vh] flex flex-col bg-black/60 overflow-hidden z-10">
     <div class="gap-y-16 container relative flex flex-col items-end my-auto">
         <h1 class="leading-[.85] text-right text-display font-secondary">
             <span class="text-white">ONLINE RESULTAAT</span><br/>
@@ -13,23 +13,98 @@ layout: default.liquid
             <div class="bg-yellow w-1 h-1 mx-4 rounded-full"></div>
             <span>app</span>
             <div class="bg-yellow w-1 h-1 mx-4 rounded-full"></div>
-            <span>shop My name iss sil</span>
+            <span>shop</span>
         </div>
-        <div class="sm:flex-row sm:items-center gap-y-5 gap-x-9 relative flex flex-col items-end justify-center md:mr-[18%]">
+        <div class="sm:flex-row sm:items-center gap-y-5 gap-x-9 relative flex flex-col items-end justify-center md:mr-[18%]" id="neptune">
             <div class="bg-gradient-radial from-blue/10 via-blue/0 to-blue/0 absolute w-[250%] h-[400%] right-[-60%] md:h-[800%]"></div>
             {% bookshop 'btn/primary' text: 'Lanceren' url: '#' big animate %}
             {% bookshop 'btn/secondary' text: 'Recente projecten' url: '#' big animate %}
         </div>
     </div>
-    <div class="bg-yellow h-[30vh]"></div>
 </section>
-<section class="relative">
 
-    <div class=" absolute z-auto inline-flex items-center -left-[40vw] sm:-left-[30vw] md:-left-[15vw] -top-[45vh] lg:-top-[60vh] justify-center w-[110vw] h-[110vw] sm:w-[85vw] sm:h-[85vw] md:w-[60vw] md:h-[60vw]" id="canvas-container">
-        <canvas id="canvas"></canvas>
-        <div class="absolute h-[122%] w-[122%] border border-white-900 rounded-full -z-50"></div>
-        <div class="absolute h-[152%] w-[152%] border border-white-900 rounded-full -z-50"></div>
+<section class="pin relative">
+    <div class="relative bg-yellow h-[30vh] w-full"></div>
+    <div class="items-center justify-center z-auto absolute -left-[20%] -top-[50%] lg:-top-[65%] inline-flex w-[110vw] sm:w-[85vw] md:w-[60vw] canvas-container">
+        <canvas class="neptune" id="canvas"></canvas>
+        {% for i in (1..3) %}
+            <div class="circle-{{ forloop.index }} absolute flex justify-center items-end aspect-1 border border-white-900 rounded-full -z-50 circle {% cycle 'h-[122%]', 'h-[154%]', 'h-[122%] border-none' %}">
+                <div class="absolute bottom-0 w-6 h-6 translate-y-1/2 bg-black border-2 border-white rounded-full"></div>
+            </div>
+        {% endfor %}
     </div>
 </section>
 
-div
+
+<section class="relative">
+    <!-- <div id="pin">
+        <div class="absolute z-auto inline-flex items-center -left-[40vw] sm:-left-[30vw] md:-left-[15vw] -top-[45vh] lg:-top-[60vh] justify-center w-[110vw] h-[110vw] sm:w-[85vw] sm:h-[85vw] md:w-[60vw] md:h-[60vw]" id="canvas-container">
+            <canvas id="canvas"></canvas>
+            <div class="absolute h-[122%] w-[122%] border border-white-900 rounded-full -z-50">
+                <div class="bg-yellow absolute bottom-0 w-6 h-6 rounded-full"></div>
+            </div>
+            <div class="absolute h-[152%] w-[152%] border border-white-900 rounded-full -z-50"></div>
+        </div>
+    </div> -->
+    <div class="projects container relative flex justify-end py-24">
+
+        <div class="bg-gradient-to-b from-black/60 to-black/0 -z-10 h-72 absolute top-0 w-full"></div>
+
+        <div class="gap-y-24 flex flex-col">
+            <h1 class="leading-[.85] text-right text-8xl font-secondary">
+                <span class="text-border-white text-black">GELANCEERDE</span><br/>
+                <span class="text-border text-white">PROJECTEN</span>
+            </h1>
+            {% for item in collections.projects %}
+                {% bookshop 'card/project' bind: item.data %}
+            {% endfor %}
+
+            {% bookshop 'btn/primary' text: 'Lanceer jouw project' url: '#' big blue animate %}
+        </div>
+    </div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+<script defer>
+
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".projects",
+            start: "top top",
+            // markers: true,
+            pin: ".pin",
+            scrub: 2,
+            pinSpacing: false
+        }
+    });
+
+    tl.to(".circle-1", {
+        x: 30,
+        y: 70
+    }).to(".neptune", {
+        x: 30,
+        y: 70
+    })
+
+    // gsap.to(".move", {
+    //     scrollTrigger: {
+    //         trigger: ".projects",
+    //         start: "top top",
+    //         // markers: true,
+    //         pin: ".pin",
+    //         scrub: 2,
+    //         pinSpacing: false
+    //     },
+    //     duration: 2,
+    //     x: 30,
+    //     y: 70
+    // });
+
+
+    // gsap.to(".ring", {
+    //     rotation: 360,
+    //     // transformOrigin: "left"
+    // })
+</script>
